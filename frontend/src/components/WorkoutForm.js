@@ -26,7 +26,7 @@ const WorkoutForm = (props) => {
 
         if (!response.ok){
             const errors = Object.values(json.error.errors)
-            setError(errors)
+            setError(errors.map(e => e.message.replace('Path', '')))
         }
         if (response.ok){
             setTitle('')
@@ -55,7 +55,7 @@ const WorkoutForm = (props) => {
 
             {error && <div className="error">{error.map((error) => {
                 return (
-                    <p key={error.path}>{error.message}</p>
+                    <p key={error}>{error}</p>
                 )
             })}</div>}
         </form>

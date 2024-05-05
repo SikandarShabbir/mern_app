@@ -13,8 +13,6 @@ const Home = () => {
     const getWorkouts = async () => {
         const response = await fetch('/workouts')
         const json = await response.json()
-        // setWorkouts(json.data)
-        console.log('DaTa', json.data)
         dispatch({type: 'SET_WORKOUTS', payload: json.data})
     }
 
